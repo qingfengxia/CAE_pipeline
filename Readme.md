@@ -22,9 +22,13 @@ In the past 3 years, I have been working on automated physical simulation to acc
 
 ![Schematic of automated engineering design pipeline](https://forum.freecadweb.org/download/file.php?id=73587)
 
-
-
 see also my presentation at Fenics 18: [Automated Mechanical Engineering Design using Open Source CAE Software Packages](https://github.com/qingfengxia/FenicsSolver/tree/master/doc/Fenics18_Xia.pdf)
+
+In the future, an intelligent engineering design process is envisaged
+
+![intelligent_engineering_design](images/intelligent_engineering_design.png)
+
+
 
 ### Related projects
 
@@ -34,6 +38,7 @@ Those are github projects I developed to enable automated CAE.
 
 - CFD <https://github.com/qingfengxia/Cfd>
 - FenicsSolver <https://github.com/qingfengxia/FenicsSolver>
+- Parallel Preprocessor:  a massive parallel tool developed by Qingfeng Xia to preprocess large assembly with hundreds of thousands part.
 
 ## Open source tools involved
 
