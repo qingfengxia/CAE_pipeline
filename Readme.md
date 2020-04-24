@@ -172,11 +172,11 @@ todo!
 
 link to example case repo: <https://github.com/qingfengxia/quasi_static_metal_cutting>
 
-
+That linked repo has code for the journal paper published: QingfengXia, David R.H. Gillespie, Quasi-static finite element modelling of thermal distribution and heat partitioning for the multi-component system of high speed metal cutting, Journal of Materials Processing Technology, 2019, https://doi.org/10.1016/j.jmatprotec.2019.116389
 
 ## License
 
 This work derived from my independent research during my stay in Oxford University, using most of my after-work time.  A very loose license (MIT) should be adopted, to let user to adapt this code by broadest users. 
 
-Do refer to our paper and presentation. [paper link]()
+If you find this information useful, do refer to our paper and presentation. [paper link](https://doi.org/10.1016/j.jmatprotec.2019.116389)
 
