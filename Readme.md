@@ -170,7 +170,7 @@ todo!
 
 ## User cases
 
-link to example case repo: <https://github.com/qingfengxia/quasi_static_metal_cut>
+link to example case repo: <https://github.com/qingfengxia/quasi_static_metal_cutting>
 
 
 
