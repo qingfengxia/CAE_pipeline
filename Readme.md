@@ -2,9 +2,9 @@
 
 by Qingfeng Xia
 
-version 0.1 
+BSD licensed
 
-2019-06-17 
+version 0.1  2019-06-17 
 
 <https://github.com/qingfengxia/CAE_pipeline>
 
@@ -17,7 +17,7 @@ However, it is common to have several design iterations. If the geometry topolog
 
 ## CAE pipeline
 
-In the past 3 years, I have been working on automated physical simulation to accelerate my engineering design process. 
+In the past 3 years, I have been working on automated physical simulation to accelerate my engineering design process.  It works similarly with Ansys workbench& ACT, but build 
 
 
 ![Schematic of automated engineering design pipeline](https://forum.freecadweb.org/download/file.php?id=73587)
@@ -34,31 +34,56 @@ In the future, an intelligent engineering design process is envisaged
 
 Those are github projects I developed to enable automated CAE.
 
-+ FreeCAD: **Module developer Guide to FreeCAD source**
++ ebook:  [*Module developer Guide to FreeCAD source*](https://github.com/qingfengxia/FreeCAD_Mod_Dev_Guide)
 
-- CFD <https://github.com/qingfengxia/Cfd>
-- FenicsSolver <https://github.com/qingfengxia/FenicsSolver>
-- Parallel Preprocessor:  a massive parallel tool developed by Qingfeng Xia to preprocess large assembly with hundreds of thousands part.
+- FreeCAD's CFD module  <https://github.com/qingfengxia/Cfd> : to tie OpenFOAM and FreeCAD together
+- [Parallel Preprocessor](https://github.com/ukaea/parallel-preprocessor):  a parallel preprocess tool to prepare large assembly for CAE simulation
+- [FenicsSolver](https://github.com/qingfengxia/FenicsSolver) : a multi-physics FEM solver based on Fenics
+- book under-writing: *Design large scale Research Software in C++ and Python*
+- [python_wrap](https://github.com/qingfengxia/python_wrap) : Various ways to wrapping C/C++ for Python
 
-## Open source tools involved
-
-+ [FreeCAD](https://www.freecadweb.org): geometry building and case setup for FEM and OpenFOAM CFD solver
-+ [Gmsh](http://gmsh.info/): meshing and mesh format translation
-+ [Salome platform](https://www.salome-platform.org/): geometry, meshing, FEM (Code_Aster) and CFD solver (Code_Saturne)
-+ FEM solver such as [Fenics/dolfin](https://fenicsproject.org/)
-+ CFD solver such as [OpenFOAM](https://www.openfoam.net/)
-+  Multiple solver coupling: [PreCICE](https://www.precice.org/)
-+ Post-processing: [ParaView](https://www.paraview.org/)
+## Workflow involved open source CAD and CAE software
 
 Those tools are selected mainly for their friendly python interfacing, esp, FreeCAD and Salome GUI can record operation into Python script. 
 
+### Geometry generation
+
++ [FreeCAD](https://www.freecadweb.org): geometry building and case setup for FEM and OpenFOAM CFD solver
+
+### Meshing generation and conversion
+
++ [Gmsh](http://gmsh.info/): meshing and mesh format translation
++ [MOAB — The Mesh-Oriented datABase](https://press3.mcs.anl.gov/sigma/moab-library/), command line interface for mesh file conversion
++ `meshio-convert` (from `meshio` python package) can translate the salome Med format into dolfin format, however, it seems boundary and subdomains are not converted. 
+
+### CAE solvers and coupling
+
++ FEM solvers such as [Fenics/dolfin](https://fenicsproject.org/),   other like Elmer, MFem, see a full list: 
++ CFD solvers such as [OpenFOAM](https://www.openfoam.net/), see a full list of open source CFD solver: 
++  Multiple solver coupling:  [PreCICE]():
+
+### Post processing
+
++ community-driven python interface to Ansys APDL/result, [pyAnsys](https://akaszynski.github.io/pyansys/ansys_write_archive.html)
++ Post-processing: [ParaView](https://www.paraview.org/),  [VTK](https://www.vtk.org)
+
+### research data management
+
++ Production life-cycle managment (PLM):
+
++ research data search, data miming, etc: 
 
 
-Some commercial tools can be used like Ansys Workbench, but there is cell number limit of 0.5 million for CFD and non-commercial usage restriction.
+
+### [Salome platform](https://www.salome-platform.org/) has almost all the component to cover the workflow
+
+geometry, meshing, FEM (Code_Aster) and CFD solver (Code_Saturne), paraview integrated for visualization. 
 
 
 
 ## Demonstration source code structure
+
+Here is a demonstration of labyrinth seal design workflow, automated by Python script:
 
 + `*_parameter.py`: parameter define the geomtrical parameters and topology
 
@@ -105,11 +130,9 @@ Some commercial tools can be used like Ansys Workbench, but there is cell number
   - In Salome, "Volume group" must be defined for the mesh, otherwise, only surface mesh is exported (checking by load into gmsh GUI) by default to MED mesh format.
   - focus on GUI operation until the first perfect meshing is confirmed by CFD solver, then focus on script
 
-## Mesh conversion
+## Work with Commercial CAD and CAE software
 
-`meshio-convert` (from meshio python package) can translate the salome Med format into dolfin format, however, it seems boundary and subdomains are not converted. 
-
-[MOAB — The Mesh-Oriented datABase](https://press3.mcs.anl.gov/sigma/moab-library/),  is the open source tool for meshing conversion. 
+Some commercial tools can be used like Ansys Workbench, but there is cell number limit of 0.5 million for CFD and non-commercial usage restriction.
 
 ###  Tested new route for CFD solvers
 
@@ -176,7 +199,7 @@ That linked repo has code for the journal paper published: QingfengXia, David R.
 
 ## License
 
-This work derived from my independent research during my stay in Oxford University, using most of my after-work time.  A very loose license (MIT) should be adopted, to let user to adapt this code by broadest users. 
+This work derived from my independent research during my stay in Oxford University, using most of my after-work time.  A very loose license (BSD) should be adopted, to let user to adapt this code by broadest users. 
 
 If you find this information useful, do refer to our paper and presentation. [paper link](https://doi.org/10.1016/j.jmatprotec.2019.116389)
 
